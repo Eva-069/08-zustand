@@ -12,7 +12,6 @@ export const fetchNotes = async (
   mySearchNote: string,
   tag?: string
 ): Promise<FetchNotesResponse> => {
-  // const ulr = tag === "All" ? `/notes${tag}` : "/notes";
 
   const response = await axios.get<FetchNotesResponse>("/notes", {
     headers: {

@@ -10,6 +10,7 @@ import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { ChangeEvent, useState } from "react";
 import { useDebounce } from "use-debounce";
 import css from "./Notes.client.module.css";
+import Link from "next/link";
 interface NoteDeClientProps {
   filter?: string;
 }
@@ -59,7 +60,8 @@ export default function NotesClient({ filter }: NoteDeClientProps) {
         )}
 
         <button className={css.button} onClick={openModal}>
-          Create note +
+          <Link href='/notes/action/create'>Create note +</Link>
+          
         </button>
       </div>
 

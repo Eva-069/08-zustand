@@ -8,3 +8,9 @@ export interface Note {
 }
 
 export type TagList = "Todo" | "Work" | "Personal" | "Meeting" | "Shopping";
+
+export type NewNote = {
+  title: string;
+  content: string;
+  tag: "Todo" | "Work" | "Personal" | "Meeting" | "Shopping";
+};
