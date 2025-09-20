@@ -1,7 +1,5 @@
 "use client";
 
-import Modal from "@/components/Modal/Modal";
-import NoteForm from "@/components/NoteForm/NoteForm";
 import NoteList from "@/components/NoteList/NoteList";
 import Pagination from "@/components/Pagination/Pagination";
 import SearchBox from "@/components/SearchBox/SearchBox";
@@ -11,11 +9,12 @@ import { ChangeEvent, useState } from "react";
 import { useDebounce } from "use-debounce";
 import css from "./Notes.client.module.css";
 import Link from "next/link";
+
 interface NoteDeClientProps {
   filter?: string;
 }
 export default function NotesClient({ filter }: NoteDeClientProps) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchNote, setSearchNote] = useState("");
   const [updateSearchNote] = useDebounce(searchNote, 300);
@@ -33,16 +32,16 @@ export default function NotesClient({ filter }: NoteDeClientProps) {
     refetchOnMount: false,
   });
 
-  const openModal = () => setIsModalOpen(true);
+  // const openModal = () => setIsModalOpen(true);
 
-  const closeModal = () => setIsModalOpen(false);
+  // const closeModal = () => setIsModalOpen(false);
   return (
     <div className={css.app}>
-      {isModalOpen && (
+      {/* {isModalOpen && (
         <Modal onClose={closeModal}>
           <NoteForm onClose={closeModal} />
         </Modal>
-      )}
+      )} */}
       <div className={css.toolbar}>
         <SearchBox
           value={searchNote}
@@ -59,10 +58,9 @@ export default function NotesClient({ filter }: NoteDeClientProps) {
           />
         )}
 
-        <button className={css.button} onClick={openModal}>
-          <Link href='/notes/action/create'>Create note +</Link>
-          
-        </button>
+        <Link href="/notes/action/create" className={css.button}>
+          Create note +
+        </Link>
       </div>
 
       {data && data.notes.length > 0 && <NoteList notes={data.notes} />}
