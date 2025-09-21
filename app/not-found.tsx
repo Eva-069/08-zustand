@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description: "Sorry, the page you are looking for does not exis",
   openGraph: {
     title: '404 - Page not found',
-    description: "Sorry, the page you are looking for does not exis",
+    description: "Sorry, the page you are looking for does not exist",
     url: 'https://notehub.com/not-found',
     images: [{
       url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',
